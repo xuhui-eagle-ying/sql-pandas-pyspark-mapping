@@ -69,13 +69,13 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 
 ## Join & Union
 
-| Operation | SQL | Pandas | PySpark |
-|----------|-----|--------|---------|
-| Inner Join | `SELECT * FROM A INNER JOIN B ON A.id = B.id` | `pd.merge(A, B, on='id', how='inner')` | `A.join(B, on='id', how='inner')` |
-| Left Join | `LEFT JOIN` | `how='left'` | `how='left'` |
-| Right Join | `RIGHT JOIN` | `how='right'` | `how='right'` |
-| Outer Join | `FULL OUTER JOIN` | `how='outer'` | `how='outer'` |
-| Union | `SELECT * FROM A`<br>`UNION SELECT * FROM B` | `pd.concat([A, B])` | `A.union(B)` |
+| Operation   | SQL                                                            | Pandas                                      | PySpark                            |
+|-------------|----------------------------------------------------------------|---------------------------------------------|------------------------------------|
+| Inner Join  | `SELECT * FROM A INNER JOIN B ON A.id = B.id`                 | `pd.merge(A, B, on='id', how='inner')`      | `A.join(B, on='id', how='inner')`  |
+| Left Join   | `SELECT * FROM A LEFT JOIN B ON A.id = B.id`                  | `pd.merge(A, B, on='id', how='left')`       | `A.join(B, on='id', how='left')`   |
+| Right Join  | `SELECT * FROM A RIGHT JOIN B ON A.id = B.id`                 | `pd.merge(A, B, on='id', how='right')`      | `A.join(B, on='id', how='right')`  |
+| Outer Join  | `SELECT * FROM A FULL OUTER JOIN B ON A.id = B.id`            | `pd.merge(A, B, on='id', how='outer')`      | `A.join(B, on='id', how='outer')`  |
+| Union       | `SELECT * FROM A`<br>`UNION SELECT * FROM B`                  | `pd.concat([A, B])`                         | `A.union(B)`                       |
 
 ---
 
