@@ -12,7 +12,7 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 - [Sorting](#sorting)
 - [Aggregation](#aggregation)
 - [Group By](#group-by)
-- [Joins](#joins)
+- [Join & Union](#join--union)
 - [Add/Update Columns](#addupdate-columns)
 - [Rename Columns](#rename-columns)
 - [Drop Columns](#drop-columns)
@@ -67,7 +67,7 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 
 ---
 
-## Joins
+## Join & Union
 
 | Operation | SQL | Pandas | PySpark |
 |----------|-----|--------|---------|
@@ -75,6 +75,7 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 | Left Join | `LEFT JOIN` | `how='left'` | `how='left'` |
 | Right Join | `RIGHT JOIN` | `how='right'` | `how='right'` |
 | Outer Join | `FULL OUTER JOIN` | `how='outer'` | `how='outer'` |
+| Union | `SELECT * FROM A`<br>`UNION SELECT * FROM B` | `pd.concat([A, B])` | `A.union(B)` |
 
 ---
 
