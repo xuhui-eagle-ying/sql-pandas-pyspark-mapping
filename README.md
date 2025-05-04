@@ -117,11 +117,11 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 
 | Operation | SQL | Pandas | PySpark |
 |----------|-----|--------|---------|
-| Row Number | `ROW_NUMBER() OVER (PARTITION BY dept ORDER BY salary DESC)` | `df.groupby('dept')['salary'].rank(method='first', ascending=False)` | `df.withColumn('row_num', F.row_number().over(Window.partitionBy('dept').orderBy(df.salary.desc())))` |
+| Row Number | `ROW_NUMBER() OVER`<br>`(PARTITION BY dept ORDER BY salary DESC)` | `df.groupby('dept')['salary'].rank(method='first', ascending=False)` | `df.withColumn('row_num', F.row_number().over(Window.partitionBy('dept').orderBy(df.salary.desc())))` |
 | Rank | `RANK() OVER (...)` | `df.groupby(...).rank(method='min')` | `df.withColumn('rank', F.rank().over(w))` |
 | Dense Rank | `DENSE_RANK() OVER (...)` | `df.groupby(...).rank(method='dense')` | `df.withColumn('dense_rank', F.dense_rank().over(w))` |
 | Lag | `LAG(col, 1) OVER (...)` | `df['col'].shift(1)` | `df.withColumn('prev', F.lag('col', 1).over(w))` |
 | Lead | `LEAD(col, 1) OVER (...)` | `df['col'].shift(-1)` | `df.withColumn('next', F.lead('col', 1).over(w))` |
-| Moving Average | `AVG(col) OVER (ORDER BY date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)` | `df['col'].rolling(window=3).mean()` | `df.withColumn('mov_avg', F.avg('col').over(Window.orderBy('date').rowsBetween(-2, 0)))` |
+| Moving Average | `AVG(col) OVER`<br>`(ORDER BY date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)` | `df['col'].rolling(window=3).mean()` | `df.withColumn('mov_avg', F.avg('col').over(Window.orderBy('date').rowsBetween(-2, 0)))` |
 
 ---
