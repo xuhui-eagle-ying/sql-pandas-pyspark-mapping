@@ -112,8 +112,6 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 
 ---
 
-## Null Handling
-
 ## Window Functions
 
 | Operation | SQL | Pandas | PySpark |
