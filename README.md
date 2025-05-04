@@ -17,6 +17,7 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 - [Rename Columns](#rename-columns)
 - [Drop Columns](#drop-columns)
 - [Null Handling](#null-handling)
+- [Window Functions](#window-functions)
 
 ---
 
@@ -110,3 +111,17 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 
 ---
 
+## Null Handling
+
+## Window Functions
+
+| Operation | SQL | Pandas | PySpark |
+|----------|-----|--------|---------|
+| Row Number | `ROW_NUMBER() OVER (PARTITION BY dept ORDER BY salary DESC)` | `df.groupby('dept')['salary'].rank(method='first', ascending=False)` | `from pyspark.sql.window import Window`<br>`w = Window.partitionBy('dept').orderBy(df.salary.desc())`<br>`df.withColumn('row_num', F.row_number().over(w))` |
+| Rank | `RANK() OVER (...)` | `rank(method='min')` | `F.rank().over(w)` |
+| Dense Rank | `DENSE_RANK() OVER (...)` | `rank(method='dense')` | `F.dense_rank().over(w)` |
+| Lag | `LAG(col, 1) OVER (...)` | `df['col'].shift(1)` | `F.lag('col', 1).over(w)` |
+| Lead | `LEAD(col, 1) OVER (...)` | `df['col'].shift(-1)` | `F.lead('col', 1).over(w)` |
+| Moving Average | `AVG(col) OVER (ORDER BY date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)` | `df['col'].rolling(window=3).mean()` | `w = Window.orderBy('date').rowsBetween(-2, 0)`<br>`df.withColumn('moving_avg', F.avg('col').over(w))` |
+
+---
