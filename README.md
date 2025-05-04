@@ -7,20 +7,20 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 
 ## 📌 Table of Contents
 
-- [🔹 Select Columns](#-select-columns)
-- [🔹 Filtering Rows](#-filtering-rows)
-- [🔹 Sorting](#-sorting)
-- [🔹 Aggregation](#-aggregation)
-- [🔹 Group By](#-group-by)
-- [🔹 Joins](#-joins)
-- [🔹 Add/Update Columns](#-addupdate-columns)
-- [🔹 Rename Columns](#-rename-columns)
-- [🔹 Drop Columns](#-drop-columns)
-- [🔹 Null Handling](#-null-handling)
+- [Select Columns](#select-columns)
+- [Filtering Rows](#filtering-rows)
+- [Sorting](#sorting)
+- [Aggregation](#aggregation)
+- [Group By](#group-by)
+- [Joins](#joins)
+- [Add/Update Columns](#addupdate-columns)
+- [Rename Columns](#rename-columns)
+- [Drop Columns](#drop-columns)
+- [Null Handling](#null-handling)
 
 ---
 
-## 🔹 Select Columns
+## Select Columns
 
 | Operation | SQL | Pandas | PySpark |
 |----------|-----|--------|---------|
@@ -29,7 +29,7 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 
 ---
 
-## 🔹 Filtering Rows
+## Filtering Rows
 
 | Operation | SQL | Pandas | PySpark |
 |----------|-----|--------|---------|
@@ -38,7 +38,7 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 
 ---
 
-## 🔹 Sorting
+## Sorting
 
 | Operation | SQL | Pandas | PySpark |
 |----------|-----|--------|---------|
@@ -47,7 +47,7 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 
 ---
 
-## 🔹 Aggregation
+## Aggregation
 
 | Operation | SQL | Pandas | PySpark |
 |----------|-----|--------|---------|
@@ -57,7 +57,7 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 
 ---
 
-## 🔹 Group By
+## Group By
 
 | Operation | SQL | Pandas | PySpark |
 |----------|-----|--------|---------|
@@ -66,7 +66,7 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 
 ---
 
-## 🔹 Joins
+## Joins
 
 | Operation | SQL | Pandas | PySpark |
 |----------|-----|--------|---------|
@@ -77,7 +77,7 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 
 ---
 
-## 🔹 Add/Update Columns
+## Add/Update Columns
 
 | Operation | SQL | Pandas | PySpark |
 |----------|-----|--------|---------|
@@ -85,7 +85,7 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 
 ---
 
-## 🔹 Rename Columns
+## Rename Columns
 
 | Operation | SQL | Pandas | PySpark |
 |----------|-----|--------|---------|
@@ -93,7 +93,7 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 
 ---
 
-## 🔹 Drop Columns
+## Drop Columns
 
 | Operation | SQL | Pandas | PySpark |
 |----------|-----|--------|---------|
@@ -101,7 +101,7 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 
 ---
 
-## 🔹 Null Handling
+## Null Handling
 
 | Operation | SQL | Pandas | PySpark |
 |----------|-----|--------|---------|
