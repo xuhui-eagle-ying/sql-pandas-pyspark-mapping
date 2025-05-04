@@ -17,6 +17,7 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 - [Rename Columns](#rename-columns)
 - [Drop Columns](#drop-columns)
 - [Null Handling](#null-handling)
+- [Duplicate Handling](#duplicate-handling)
 - [Window Functions](#window-functions)
 
 ---
@@ -107,8 +108,20 @@ A handy template mapping common operations between **SQL**, **Pandas**, and **Py
 
 | Operation | SQL | Pandas | PySpark |
 |----------|-----|--------|---------|
-| Filter nulls | `WHERE col IS NOT NULL` | `df[df['col'].notnull()]` | `df.filter(df.col.isNotNull())` |
-| Fill nulls | `N/A` | `df.fillna(value)` | `df.fillna(value)` |
+| Filter nulls     | `WHERE col IS NOT NULL`      | `df[df['col'].notna()]` or `df[df['col'].notnull()]` | `df.filter(df.col.isNotNull())`       |
+| Filter nulls (IS) | `WHERE col IS NULL`         | `df[df['col'].isna()]` or `df[df['col'].isnull()]`   | `df.filter(df.col.isNull())`          |
+| Fill nulls        | `N/A`                       | `df.fillna(value)`              | `df.fillna(value)`                    |
+| Count nulls (per column) | `SUM(CASE WHEN col IS NULL THEN 1 ELSE 0 END)` | `df['col'].isna().sum()`         | `df.filter(df.col.isNull()).count()`  |
+
+---
+
+## Duplicate Handling
+
+| Operation            | SQL                          | Pandas                          | PySpark                              |
+|---------------------|------------------------------|----------------------------------|--------------------------------------|
+| Find duplicates     | `SELECT col, COUNT(*) FROM table GROUP BY col HAVING COUNT(*) > 1` | `df.duplicated()`               | `df.groupBy(cols).count().filter("count > 1")` |
+| Drop duplicates     | `N/A`                        | `df.drop_duplicates()`          | `df.dropDuplicates()`                |
+| Keep first/last     | `N/A`                        | `df.drop_duplicates(keep='first')` / `keep='last'` | `Not directly supported, use Window functions` |
 
 ---
 
